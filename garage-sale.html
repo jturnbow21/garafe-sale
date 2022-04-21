@@ -27,8 +27,8 @@
         <div class="container-fluid">
             <div class="row header-bg align-items-center ">
                 <div class="col text-center">
-                    <h1 class="header-1 ">Garage Sale</h1>
-                    <h2 class="header-2">I have a weird garage man!</h2>
+                    <h1 class="header-1 text-primary">Garage Sale</h1>
+                    <h2 class="header-2 text-primary">I have a weird garage man!</h2>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
                 <div class="col-lg-4 col-md-6 d-flex justify-content-center pt-5 pb-5">
                     <div class="card" style="width: 18rem;">
                         <div class="project-img-container">
-                            <img src="img/broken-dagger.jpg" class="card-img-top project-img" alt="drone">
+                            <img src="img//img/broken-dagger.jpg" class="card-img-top project-img" alt="drone">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title header-4">Broken Dagger</h5>
@@ -56,7 +56,7 @@
                 <div class="col-lg-4 col-md-6 d-flex justify-content-center pt-5 pb-5">
                     <div class="card" style="width: 18rem;">
                         <div class="project-img-container">
-                            <img src="img/old-katana.jpg" class="card-img-top project-img" alt="drone">
+                            <img src="img//img/old-katana.jpg" class="card-img-top project-img" alt="drone">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title header-4">Blessed Katana</h5>
@@ -69,7 +69,7 @@
                 <div class="col-lg-4 col-md-6 mx-auto d-flex justify-content-center pt-5 pb-5">
                     <div class="card" style="width: 18rem;">
                         <div class="project-img-container">
-                            <img src="img/nice-rope.jpg" class="card-img-top project-img" alt="drone">
+                            <img src="img/img/nice-rope.jpg" class="card-img-top project-img" alt="drone">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title header-4">Rope</h5>
@@ -82,7 +82,7 @@
                 <div class="col-lg-4 col-md-6 mx-auto d-flex justify-content-center pt-5 pb-5">
                     <div class="card" style="width: 18rem;">
                         <div class="project-img-container">
-                            <img src="img/mana-potion.JPG" class="card-img-top project-img" alt="drone">
+                            <img src="img//img/mana-potion.JPG" class="card-img-top project-img" alt="drone">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title header-4">Mana Potion</h5>
@@ -95,7 +95,7 @@
                 <div class="col-lg-4 col-md-6 mx-auto d-flex justify-content-center pt-5 pb-5">
                     <div class="card" style="width: 18rem;">
                         <div class="project-img-container">
-                            <img src="img/ring.jpg" class="card-img-top project-img" alt="drone">
+                            <img src="img//img/ring.jpg" class="card-img-top project-img" alt="drone">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title header-4">Old Ring</h5>
@@ -108,7 +108,7 @@
                 <div class="col-lg-4 col-md-6 mx-auto d-flex justify-content-center pt-5 pb-5">
                     <div class="card" style="width: 18rem;">
                         <div class="project-img-container">
-                            <img src="img/health-potion.jpg" class="card-img-top project-img" alt="drone">
+                            <img src="img//img/health-potion.jpg" class="card-img-top project-img" alt="drone">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title header-4">Health Potion</h5>
@@ -123,6 +123,7 @@
                 <button id="checkout" class="btn btn-dark" type="button" id="checkout">Checkout</button>
               </div>
               <h1 class="header-4 text-center">Your shopping cart total is: $<span id="cartTotal" ></span></h1>
+              <h1 class="header-4 text-center">The Number of items in your cart is: <span id="cartNumber" ></span></h1>
         </div>
 <!-- End of Item Cards -->
     </section>
@@ -144,6 +145,7 @@
             const checkoutButton = document.getElementById("checkout")
             var count = 1;
             var cartIsEmpty = true;
+            var numberOfItemsInShoppingCart = 0
             var timesClickedD = 0;
             var timesClickedK = 0;
             var timesClickedM = 0;
@@ -165,10 +167,12 @@ function DaggerClick() {
                 console.log("removed dagger")
                 shoppingCart.push([-55.00, "dagger-add", "Dagger"]) 
                 daggerAddButton.innerHTML = "Add to Cart";
+                numberOfItemsInShoppingCart--;
             } else {
                 console.log("Dagger Added")
                 shoppingCart.push([55.00, "dagger-add", "Dagger"])
                 daggerAddButton.innerHTML = "Remove from Cart";
+                numberOfItemsInShoppingCart++;
             }
         } 
           
@@ -184,10 +188,12 @@ function DaggerClick() {
                 console.log("removed Katana")
                 shoppingCart.push([-420.69, "katana-remove", "Katana"]) 
                 katanaAddButton.innerHTML = "Add to Cart";
+                numberOfItemsInShoppingCart--;
             } else {
                 console.log("Katana Added")
                 shoppingCart.push([420.69, "katana-add", "Katana"])
                 katanaAddButton.innerHTML = "Remove from Cart";
+                numberOfItemsInShoppingCart++;
             }
         } 
           
@@ -203,59 +209,77 @@ function DaggerClick() {
                 console.log("removed Rope")
                 shoppingCart.push([-55.00, "rope-remove", "Rope"]) 
                 ropeAddButton.innerHTML = "Add to Cart";
+                numberOfItemsInShoppingCart--;
             } else {
                 console.log("Rope Added")
                 shoppingCart.push([55.00, "rope-add", "Rope"])
                 ropeAddButton.innerHTML = "Remove from Cart";
+                numberOfItemsInShoppingCart++;
             }
         } 
                 ropeAddButton.addEventListener("click", RopeClick)
 
 // Mana Function
-            function ManaClick() {
+function ManaClick() {
                 console.log("Clicked Mana")
-                shoppingCart.push([37.73, "mana-add", "Mana"])
-                manaAddButton.innerHTML = "Remove from Cart";
                 timesClickedM++;
-
-                if (timesClickedM%2==0) {
+                 
+                if (timesClickedM % 2==0)
+{              
+                console.log("removed Mana")
+                shoppingCart.push([-37.73, "mana-remove", "Mana"]) 
                 manaAddButton.innerHTML = "Add to Cart";
-                shoppingCart.push([-75.46, "mana-add", "Mana"])
-               
-                console.log("Removed Mana")
-                } }
+                numberOfItemsInShoppingCart--;
+            } else {
+                console.log("Mana Added")
+                shoppingCart.push([37.73, "rope-add", "Rope"])
+                manaAddButton.innerHTML = "Remove from Cart";
+                numberOfItemsInShoppingCart++;
+            }
+        } 
             manaAddButton.addEventListener("click", ManaClick)
 
  //    Ring Function
             function RingClick() {
                 console.log("Clicked Ring")
-                shoppingCart.push([1993.00, "ring-add", "Ring"])
-                ringAddButton.innerHTML = "Remove from Cart";
-                timesClickedR++;
-
-                if (timesClickedR%2==0) {
+                timesClickedRing++;
+                 
+                if (timesClickedRing% 2==0)
+{              
+                console.log("Removed Ring")
+                shoppingCart.push([-1993.00, "ring-remove", "Ring"]) 
                 ringAddButton.innerHTML = "Add to Cart";
-                shoppingCart.push([-3986.00, "ring-add", "Ring"])
-               
-               console.log("Removed Ring")
-               } }
+                numberOfItemsInShoppingCart--;
+            } else {
+                console.log("Ring Added")
+                shoppingCart.push([1993.00, "Ring-add", "Ring"])
+                ringAddButton.innerHTML = "Remove from Cart";
+                numberOfItemsInShoppingCart++;
+            }
+        } 
             ringAddButton.addEventListener("click", RingClick)
 
 // Health Function
             function HealthClick() {
                 console.log("Clicked Health")
-                shoppingCart.push([73.37, "health-add", "Health"])
-                healthAddButton.innerHTML = "Remove from Cart";
                 timesClickedH++;
-
-                if (timesClickedH%2==0) {
+                 
+                if (timesClickedH% 2==0)
+{              
+                console.log("Removed Health")
+                shoppingCart.push([-73.37, "Health-remove", "Health"]) 
                 healthAddButton.innerHTML = "Add to Cart";
-                shoppingCart.push([-146.74, "health-add", "Health"])
-               
-               console.log("Removed Health")
-               } }
+                numberOfItemsInShoppingCart--;
+            } else {
+                console.log("Health Added")
+                shoppingCart.push([73.37, "Health-add", "Health"])
+                healthAddButton.innerHTML = "Remove from Cart";
+                numberOfItemsInShoppingCart++;
+            }
+        } 
 
             healthAddButton.addEventListener("click", HealthClick)
+
 
 // Checkout Function 
             function checkoutClick() {
@@ -264,6 +288,7 @@ function DaggerClick() {
             console.log(shoppingCart[0][0] + shoppingCart[0][0])
             var totalCartPrice = shoppingCart.reduce((total, current) => total + current[0], 0)
             document.getElementById("cartTotal").innerHTML = totalCartPrice;
+            document.getElementById("cartNumber").innerHTML = numberOfItemsInShoppingCart;
 
             console.log(totalCartPrice);
         }

@@ -1,0 +1,30 @@
+/* Header Section */
+.header-bg {
+    background-image: url(/img/img/equipment.jpg);
+    height: 75vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Shop Section */
+
+.sale {
+    background-color: #88808F;
+}
+
+/* Items Section */
+.project-img {
+    height: 500px;
+    
+}
+
+.project-img:hover {
+    transform: scale(1.2);
+    transition: ease-in-out;
+    transition-duration: 1.2s;
+}
+
+.project-img-container {
+    overflow: hidden;
+}
+
