@@ -1,4 +1,4 @@
-/* Header Section */
+
 .header-bg {
     background-image: url(/img/img/equipment.jpg);
     height: 75vh;
@@ -6,13 +6,13 @@
     background-position: center;
 }
 
-/* Shop Section */
+
 
 .sale {
     background-color: #88808F;
 }
 
-/* Items Section */
+
 .project-img {
     height: 500px;
     
