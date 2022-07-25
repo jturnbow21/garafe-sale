@@ -61,7 +61,7 @@
                         <div class="card-body">
                             <h5 class="card-title header-4">Blessed Katana</h5>
                             <p class="card-text paragraph-3">I think this will cut through anything!</p>
-                            <p>$420.69</p>
+                            <p>$53.25</p>
                             <button class="btn btn-outline-secondary btn-" id="katana-add">Add to Cart</button>
                         </div>
                     </div>
@@ -186,12 +186,12 @@ function DaggerClick() {
                 if (timesClickedK % 2==0)
 {              
                 console.log("removed Katana")
-                shoppingCart.push([-420.69, "katana-remove", "Katana"]) 
+                shoppingCart.push([-53.25, "katana-remove", "Katana"]) 
                 katanaAddButton.innerHTML = "Add to Cart";
                 numberOfItemsInShoppingCart--;
             } else {
                 console.log("Katana Added")
-                shoppingCart.push([420.69, "katana-add", "Katana"])
+                shoppingCart.push([53.25, "katana-add", "Katana"])
                 katanaAddButton.innerHTML = "Remove from Cart";
                 numberOfItemsInShoppingCart++;
             }
